@@ -1,0 +1,511 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GAY ONLY // BEDWARS</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background:
+        radial-gradient(circle at top, #25142d 0%, #09070d 45%, #050509 100%);
+    color: white;
+    min-height: 100vh;
+}
+
+nav {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    background: rgba(5, 5, 9, .8);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 950;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #ff6ec7;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #aaa3b2;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.hero {
+    max-width: 1100px;
+    margin: auto;
+    padding: 120px 30px 90px;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,110,199,.35);
+    background: rgba(255,110,199,.08);
+    color: #ff8ed5;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: clamp(45px, 8vw, 90px);
+    line-height: .95;
+    margin-top: 25px;
+    font-weight: 950;
+    letter-spacing: -4px;
+}
+
+h1 span {
+    background: linear-gradient(
+        90deg,
+        #ff4d6d,
+        #ff9f43,
+        #ffe66d,
+        #5ee7df,
+        #6ea8ff,
+        #c77dff,
+        #ff6ec7
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 25px auto;
+    color: #aaa3b2;
+    line-height: 1.7;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+button {
+    border: 0;
+    padding: 14px 23px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: .2s;
+}
+
+.primary {
+    background: linear-gradient(90deg, #ff6ec7, #9d7cff);
+    color: white;
+}
+
+.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 35px rgba(255,110,199,.25);
+}
+
+.secondary {
+    background: #15121b;
+    color: white;
+    border: 1px solid #292331;
+}
+
+.secondary:hover {
+    background: #201b29;
+}
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 30px;
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 950;
+}
+
+.section-subtitle {
+    color: #77717f;
+    margin-top: 8px;
+    margin-bottom: 30px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.stat {
+    background: rgba(15,12,19,.85);
+    border: 1px solid #25202c;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.stat h2 {
+    font-size: 30px;
+    background: linear-gradient(90deg, #ff6ec7, #9d7cff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.stat p {
+    color: #77717f;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.players {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.player {
+    background: rgba(15,12,19,.85);
+    border: 1px solid #25202c;
+    border-radius: 15px;
+    padding: 22px;
+    transition: .2s;
+}
+
+.player:hover {
+    transform: translateY(-4px);
+    border-color: #a64e8a;
+}
+
+.player-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-weight: 950;
+    background: linear-gradient(
+        135deg,
+        #ff6ec7,
+        #9d7cff
+    );
+}
+
+.player h3 {
+    font-size: 15px;
+}
+
+.player small {
+    color: #ff6ec7;
+    font-weight: bold;
+}
+
+.player-info {
+    margin-top: 18px;
+    color: #8d8795;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.status {
+    color: #7ee787;
+}
+
+.recruitment {
+    margin-top: 30px;
+    padding: 35px;
+    text-align: center;
+    border-radius: 18px;
+    border: 1px solid #302635;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,110,199,.08),
+            rgba(157,124,255,.05)
+        );
+}
+
+.recruitment h2 {
+    font-size: 28px;
+}
+
+.recruitment p {
+    color: #8d8795;
+    margin: 12px auto 22px;
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 35px;
+    text-align: center;
+    color: #55505b;
+    border-top: 1px solid #17131c;
+}
+
+@media (max-width: 800px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .players {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        GAY <span>ONLY</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#team">Team</a>
+        <a href="#stats">Stats</a>
+        <a href="#recruit">Recruit</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="badge">
+        🏳️‍🌈 GAY ONLY // BEDWARS MAIN TEAM
+    </div>
+
+    <h1>
+        GAY. <span>COMPETITIVE.</span>
+    </h1>
+
+    <p>
+       Where we crack felix
+    </p>
+
+    <div class="buttons">
+        <button class="primary" onclick="joinDiscord()">
+            JOIN DISCORD
+        </button>
+
+        <button class="secondary" onclick="viewTeam()">
+            VIEW TEAM
+        </button>
+    </div>
+
+</section>
+
+<section class="section" id="stats">
+
+    <h2 class="section-title">TEAM STATS</h2>
+
+    <p class="section-subtitle">
+        Current competitive performance.
+    </p>
+
+    <div class="stats">
+
+        <div class="stat">
+            <h2>24</h2>
+            <p>MEMBERS</p>
+        </div>
+
+        <div class="stat">
+            <h2>82%</h2>
+            <p>WIN RATE</p>
+        </div>
+
+        <div class="stat">
+            <h2>1,240</h2>
+            <p>WINS</p>
+        </div>
+
+        <div class="stat">
+            <h2>#1</h2>
+            <p>TEAM RANK</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="team">
+
+    <h2 class="section-title">MAIN TEAM</h2>
+
+    <p class="section-subtitle">
+        Our current competitive lineup.
+    </p>
+
+    <div class="players">
+
+        <div class="player">
+
+            <div class="player-top">
+
+                <div class="avatar">
+                    W
+                </div>
+
+                <div>
+                    <h3>PLAYER ONE</h3>
+                    <small>CAPTAIN</small>
+                </div>
+
+            </div>
+
+            <div class="player-info">
+                Role: IGL / PvP<br>
+                Rank: Diamond<br>
+                <span class="status">● Online</span>
+            </div>
+
+        </div>
+
+        <div class="player">
+
+            <div class="player-top">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div>
+                    <h3>PLAYER TWO</h3>
+                    <small>MAIN</small>
+                </div>
+
+            </div>
+
+            <div class="player-info">
+                Role: Rusher<br>
+                Rank: Diamond<br>
+                <span class="status">● Online</span>
+            </div>
+
+        </div>
+
+        <div class="player">
+
+            <div class="player-top">
+
+                <div class="avatar">
+                    X
+                </div>
+
+                <div>
+                    <h3>PLAYER THREE</h3>
+                    <small>MAIN</small>
+                </div>
+
+            </div>
+
+            <div class="player-info">
+                Role: Defender<br>
+                Rank: Nightmare<br>
+                <span class="status">● Online</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="recruit">
+
+    <div class="recruitment">
+
+        <h2>GAY ONLY RECRUITMENT</h2>
+
+        <p>
+            Looking for competitive BedWars players
+            who want to join the main team.
+        </p>
+
+        <button class="primary" onclick="joinDiscord()">
+            APPLY / JOIN DISCORD
+        </button>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 GAY ONLY // BEDWARS MAIN TEAM
+</footer>
+
+<script>
+function joinDiscord() {
+    // Replace this with your actual Discord invite
+    window.open("https://discord.com/", "_blank");
+}
+
+function viewTeam() {
+    document.getElementById("team").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
+```
